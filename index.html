@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4efe6">
+<title>Приглашение — наша история</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5f0e7;--ink:#26251f;--muted:#777267;--gold:#9b8051;--line:#d8cdbb;--white:#fffaf2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.cover{min-height:100svh;display:grid;place-items:center;padding:24px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#fffaf3 0,#f2e9dc 58%,#e5d9c6 100%)}
+.cover:before,.cover:after{content:"";position:absolute;width:min(78vw,680px);height:min(78vw,680px);border:1px solid #bba47c55;border-radius:50%;pointer-events:none}.cover:after{width:min(66vw,570px);height:min(66vw,570px)}
+.cover-card{position:relative;z-index:1;width:min(100%,520px);min-height:650px;padding:50px 32px 42px;border:1px solid #b99c6a;outline:1px solid #b99c6a;outline-offset:7px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:space-between;background:#f8f2e8c9;box-shadow:0 25px 80px #51432a14}
+.eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}.monogram{font:500 74px/.9 "Cormorant Garamond",serif;color:var(--gold);margin:20px 0}.names{font:500 clamp(36px,7vw,56px)/.95 "Cormorant Garamond",serif;letter-spacing:-.02em}.amp{color:var(--gold);font-style:italic}.date{letter-spacing:.2em;font-size:12px;margin-top:22px}.venue{font-size:11px;letter-spacing:.15em;color:var(--muted);margin-top:10px}.seal{width:78px;height:78px;border-radius:50%;border:1px solid #a78a56;background:radial-gradient(circle,#b49a69,#8c7044);color:#fff9ee;display:grid;place-items:center;font:30px "Cormorant Garamond",serif;box-shadow:0 5px 18px #78613c2b;position:relative;margin:22px auto}.seal:before{content:"";position:absolute;inset:5px;border:1px solid #e9d8b4;border-radius:50%}.open-btn,.primary{border:0;background:var(--ink);color:#fff8ec;padding:15px 26px;letter-spacing:.13em;text-transform:uppercase;font-size:10px;transition:.25s}.open-btn:hover,.primary:hover{background:#64563e;transform:translateY(-2px)}.cover-hint{font-size:10px;color:var(--muted);letter-spacing:.13em}.sound{position:absolute;right:20px;top:20px;border:1px solid var(--line);background:#fff8eeaa;padding:10px 13px;font-size:10px;letter-spacing:.1em;color:var(--ink);z-index:2}
+main{display:none}main.visible{display:block}.section{padding:95px 22px;max-width:920px;margin:auto;text-align:center}.section-kicker{font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}.section h2{font:500 clamp(38px,7vw,64px)/.95 "Cormorant Garamond",serif;margin:20px 0}.copy{max-width:590px;margin:20px auto;color:#6c665c;font-size:14px;line-height:1.9}.ornament{color:var(--gold);font-size:23px;margin:28px 0}.hero{padding:100px 20px 80px;background:linear-gradient(#f5f0e7,#eee5d7);text-align:center;position:relative}.hero .names{font-size:clamp(46px,9vw,86px)}.hero .date{font-size:12px}.photo-frame{margin:45px auto 0;max-width:570px;aspect-ratio:4/5;border:8px solid var(--white);outline:1px solid var(--line);background:linear-gradient(135deg,#d7c9b4,#b9a58a 45%,#e8ded0);overflow:hidden;position:relative;display:grid;place-items:center;color:#fff}.photo-frame img{width:100%;height:100%;object-fit:cover;display:none}.photo-frame.has-image img{display:block}.photo-placeholder{font:italic 28px "Cormorant Garamond",serif;text-shadow:0 2px 10px #0002}.photo-frame.has-image .photo-placeholder{display:none}.photo-upload{margin-top:12px;font-size:11px;color:var(--muted)}.photo-upload input{max-width:240px;font-size:11px}
+.calendar{max-width:420px;margin:38px auto 0;border:1px solid var(--line);padding:25px;background:#fff9f0}.month{font:500 28px "Cormorant Garamond",serif;margin-bottom:18px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;font-size:12px}.days span{padding:8px 0;color:#777}.days .weekday{font-size:9px;letter-spacing:.1em;color:var(--gold)}.days .chosen{background:var(--ink);color:#fff;border-radius:50%}
+.schedule{max-width:600px;margin:35px auto 0;border-top:1px solid var(--line)}.event{display:grid;grid-template-columns:100px 1fr;text-align:left;gap:20px;padding:23px 8px;border-bottom:1px solid var(--line)}.event-time{font:500 28px "Cormorant Garamond",serif;color:var(--gold)}.event h3{font:500 24px "Cormorant Garamond",serif;margin:0 0 6px}.event p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
+.location-card{max-width:580px;margin:35px auto 0;border:1px solid var(--line);padding:38px 22px;background:#fff9f0}.location-card h3{font:500 34px "Cormorant Garamond",serif;margin:12px}.location-card p{color:var(--muted);font-size:12px;line-height:1.8}.text-link{display:inline-block;margin-top:14px;color:var(--ink);font-size:10px;letter-spacing:.15em;text-transform:uppercase;border-bottom:1px solid var(--gold);padding-bottom:5px;text-decoration:none}
+.countdown{display:flex;justify-content:center;gap:clamp(10px,4vw,32px);margin:38px auto}.countdown div{min-width:55px}.countdown strong{display:block;font:500 clamp(32px,6vw,52px) "Cormorant Garamond",serif}.countdown small{font-size:9px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.rsvp{background:#e9dfd0;padding:90px 20px}.rsvp-inner{max-width:560px;margin:auto;text-align:center}.rsvp h2{font:500 clamp(40px,8vw,62px) "Cormorant Garamond",serif;margin:18px 0}.form{display:grid;gap:12px;margin:30px 0}.form input,.form select,.form textarea{width:100%;border:1px solid #d1c4b1;background:#f9f3e9;padding:15px;color:var(--ink);border-radius:0;font-size:12px}.form textarea{min-height:85px;resize:vertical}.form .primary{width:100%;padding:17px}.note{font-size:10px;color:var(--muted);line-height:1.7}.footer{padding:45px 20px;text-align:center;background:var(--ink);color:#eee3d1}.footer .names{font-size:35px}.footer small{display:block;margin-top:18px;letter-spacing:.16em;font-size:9px;color:#b7a78e}
+.edit-panel{position:fixed;bottom:16px;right:16px;z-index:10}.edit-toggle{border:1px solid #b5a17c;background:#fbf4e9;color:#4d4434;padding:12px 15px;font-size:10px;letter-spacing:.1em;box-shadow:0 4px 20px #0001}.edit-box{display:none;position:absolute;bottom:48px;right:0;width:min(330px,calc(100vw - 32px));max-height:70vh;overflow:auto;background:#fffaf2;border:1px solid var(--line);padding:18px;box-shadow:0 10px 35px #0002;text-align:left}.edit-box.open{display:block}.edit-box h3{font:500 24px "Cormorant Garamond",serif;margin:0 0 12px}.edit-box label{display:block;font-size:10px;color:var(--muted);margin:12px 0 5px}.edit-box input,.edit-box textarea{width:100%;padding:10px;border:1px solid var(--line);background:white;font-size:12px}.edit-box button{margin-top:12px;width:100%;padding:11px;background:var(--ink);color:white;border:0;font-size:10px;letter-spacing:.1em}.edit-box .secondary{background:#e9dfd0;color:var(--ink)}
+@media(max-width:540px){.cover-card{min-height:580px;padding:38px 20px}.section{padding:70px 20px}.hero{padding-top:75px}.event{grid-template-columns:76px 1fr;gap:12px}.event-time{font-size:24px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+
+/* Scroll journey: a fine winding line with a moving gold marker */
+.scroll-route{display:none;position:fixed;z-index:8;right:clamp(7px,2.2vw,28px);top:12vh;width:54px;height:76vh;min-height:360px;max-height:760px;pointer-events:none;opacity:.92;filter:drop-shadow(0 2px 5px #8b72401a)}
+.scroll-route.active{display:block}
+.scroll-route svg{width:100%;height:100%;overflow:visible}
+.route-base,.route-progress{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.route-base{stroke:#b8a27d66;stroke-width:2}
+.route-progress{stroke:#a88a55;stroke-width:2.4}
+.route-marker{filter:drop-shadow(0 2px 5px #70552b35);transition:transform .12s linear}
+.route-marker circle{fill:#9d8050;stroke:#fff8ed;stroke-width:2.3}
+.route-marker text{fill:#fff8ed;font:12px Georgia,serif;text-anchor:middle;dominant-baseline:central}
+@media(max-width:600px){.scroll-route{right:2px;width:35px;height:68vh;min-height:300px;top:16vh;opacity:.78}}
+@media(prefers-reduced-motion:reduce){.route-marker{transition:none}}
+
+</style>
+</head>
+<body>
+<section class="cover" id="cover">
+ <button class="sound" id="musicToggle" type="button">♫ МУЗЫКА: ВЫКЛ.</button>
+ <div class="cover-card">
+  <div class="eyebrow">Приглашение на свадьбу</div>
+  <div>
+   <div class="monogram" id="coverInitials">А ♡ М</div>
+   <div class="names"><span id="coverBride">Алина</span><br><span class="amp">&</span><br><span id="coverGroom">Марат</span></div>
+   <div class="date" id="coverDate">14 · 08 · 2027</div>
+   <div class="venue" id="coverCity">МОСКВА · РОССИЯ</div>
+  </div>
+  <div>
+   <div class="seal">♡</div>
+   <button class="open-btn" id="openInvite">Открыть приглашение</button>
+   <div class="cover-hint" style="margin-top:18px">НАЖМИТЕ, ЧТОБЫ ОТКРЫТЬ</div>
+  </div>
+ </div>
+</section>
+<main id="main">
+ <section class="hero">
+  <div class="section-kicker">Мы будем счастливы разделить этот день</div>
+  <div class="ornament">✦</div>
+  <div class="names"><span id="heroBride">Алина</span><br><span class="amp">&</span><br><span id="heroGroom">Марат</span></div>
+  <div class="date" id="heroDate">14 · 08 · 2027</div>
+  <div class="photo-frame" id="photoFrame"><img id="couplePhoto" alt="Фото пары"><div class="photo-placeholder">Ваша история любви</div></div>
+  <div class="photo-upload">Добавить фото пары: <input type="file" id="photoInput" accept="image/*"></div>
+  <div class="ornament">❦</div>
+  <div class="copy" id="introText">Дорогие родные и друзья! С огромной радостью приглашаем вас на нашу свадьбу. Будем счастливы, если вы разделите с нами этот особенный день.</div>
+  <div class="section-kicker">Листайте вниз · наша история продолжается</div>
+ </section>
+ <section class="section">
+  <div class="section-kicker">Особенный день</div><h2>Сохраните дату</h2><div class="ornament">✧</div>
+  <div class="calendar"><div class="month" id="calendarMonth">Август 2027</div><div class="days" id="calendarDays"></div></div>
+ </section>
+ <section class="section" style="padding-top:30px">
+  <div class="section-kicker">План торжества</div><h2>Будем ждать вас</h2><div class="copy">Пусть этот день наполнится теплом, улыбками и самыми дорогими людьми.</div>
+  <div class="schedule">
+   <div class="event"><div class="event-time" id="time1">16:00</div><div><h3 id="event1">Сбор гостей</h3><p id="desc1">Встречаемся, обнимаемся и делаем первые фотографии.</p></div></div>
+   <div class="event"><div class="event-time" id="time2">17:00</div><div><h3 id="event2">Начало торжества</h3><p id="desc2">Праздничный вечер, который мы запомним навсегда.</p></div></div>
+   <div class="event"><div class="event-time" id="time3">22:00</div><div><h3 id="event3">Танцы и веселье</h3><p id="desc3">Продолжаем праздновать вместе.</p></div></div>
+  </div>
+ </section>
+ <section class="section" style="background:#eee5d7;max-width:none">
+  <div class="section-kicker">Место встречи</div><h2>Ждём вас здесь</h2><div class="ornament">✦</div>
+  <div class="location-card"><div class="section-kicker">Банкетный зал</div><h3 id="venueName">Усадьба «Лесная»</h3><p id="venueAddress">Москва, адрес будет указан здесь</p><a class="text-link" id="mapLink" href="https://maps.google.com" target="_blank" rel="noreferrer">Открыть карту ↗</a></div>
+ </section>
+ <section class="section">
+  <div class="section-kicker">До нашего дня</div><h2>Осталось совсем немного</h2><div class="countdown" id="countdown"><div><strong>—</strong><small>дней</small></div><div><strong>—</strong><small>часов</small></div><div><strong>—</strong><small>минут</small></div><div><strong>—</strong><small>секунд</small></div></div><div class="ornament">♡</div>
+ </section>
+ <section class="rsvp">
+  <div class="rsvp-inner"><div class="section-kicker">Ваш ответ</div><h2>Вы будете с нами?</h2><p class="copy">Пожалуйста, подтвердите присутствие до <span id="rsvpDeadline">1 августа 2027</span>. Это поможет нам подготовить праздник с заботой о каждом госте.</p>
+   <form class="form" id="rsvpForm">
+    <input id="guestName" placeholder="Ваше имя и фамилия" required>
+    <select id="attendance" required><option value="Да, с радостью буду">Да, с радостью буду</option><option value="К сожалению, не смогу">К сожалению, не смогу</option></select>
+    <select id="guestCount"><option value="1">Буду один / одна</option><option value="2">Нас будет 2</option><option value="3">Нас будет 3</option><option value="4">Нас будет 4</option><option value="5">Нас будет 5</option></select>
+    <textarea id="guestNote" placeholder="Пожелание молодожёнам (необязательно)"></textarea>
+    <button class="primary" type="submit">Отправить ответ ♡</button>
+   </form>
+   <p class="note" id="rsvpNote">Ответ откроется в WhatsApp для отправки организаторам. Номер можно изменить в настройках шаблона.</p>
+  </div>
+ </section>
+ <footer class="footer"><div class="names"><span id="footerBride">Алина</span> <span class="amp">♥</span> <span id="footerGroom">Марат</span></div><small id="footerDate">14 АВГУСТА 2027 · С ЛЮБОВЬЮ</small></footer>
+</main>
+
+<div class="scroll-route" id="scrollRoute" aria-hidden="true">
+ <svg viewBox="0 0 64 1000" preserveAspectRatio="none">
+  <path class="route-base" id="routeBase" d="M32 12 C4 82 60 145 32 220 C4 295 60 355 32 430 C4 505 60 565 32 640 C4 715 60 775 32 850 C4 920 60 960 32 988"/>
+  <path class="route-progress" id="routeProgress" d="M32 12 C4 82 60 145 32 220 C4 295 60 355 32 430 C4 505 60 565 32 640 C4 715 60 775 32 850 C4 920 60 960 32 988"/>
+  <g class="route-marker" id="routeMarker"><circle r="13"/><text y=".5">♥</text></g>
+ </svg>
+</div>
+
+<div class="edit-panel"><div class="edit-box" id="editBox">
+ <h3>Настроить приглашение</h3>
+ <label>Имя невесты</label><input id="editBride" value="Алина">
+ <label>Имя жениха</label><input id="editGroom" value="Марат">
+ <label>Дата (YYYY-MM-DD)</label><input id="editDate" type="date" value="2027-08-14">
+ <label>Город</label><input id="editCity" value="Москва · Россия">
+ <label>Название площадки</label><input id="editVenue" value="Усадьба «Лесная»">
+ <label>Адрес</label><input id="editAddress" value="Москва, адрес будет указан здесь">
+ <label>Ссылка на карту</label><input id="editMap" value="https://maps.google.com">
+ <label>WhatsApp организатора (с кодом страны)</label><input id="editPhone" value="79990000000">
+ <label>Вступительный текст</label><textarea id="editIntro">Дорогие родные и друзья! С огромной радостью приглашаем вас на нашу свадьбу. Будем счастливы, если вы разделите с нами этот особенный день.</textarea>
+ <label>Фоновая музыка (MP3, WAV, M4A)</label><input id="musicFile" type="file" accept="audio/*">
+ <p class="note" id="musicStatus">Музыка ещё не добавлена. Выберите аудиофайл, затем нажмите кнопку ♫ вверху страницы.</p>
+ <label>Громкость музыки</label><input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.35">
+ <button id="saveSettings">Применить изменения</button><button class="secondary" id="resetSettings">Сбросить шаблон</button>
+ <p class="note" id="saveStatus">Настройки будут сохранены в этом браузере. Для публикации изменений для всех гостей понадобится обновить сайт на хостинге.</p>
+ </div><button class="edit-toggle" id="editToggle">⚙ НАСТРОИТЬ</button></div>
+<audio id="weddingAudio" loop preload="metadata"></audio>
+<script>
+const $=id=>document.getElementById(id);
+const defaults={bride:"Алина",groom:"Марат",date:"2027-08-14",city:"Москва · Россия",venue:"Усадьба «Лесная»",address:"Москва, адрес будет указан здесь",map:"https://maps.google.com",phone:"79990000000",intro:"Дорогие родные и друзья! С огромной радостью приглашаем вас на нашу свадьбу. Будем счастливы, если вы разделите с нами этот особенный день.",musicVolume:0.35};
+const SETTINGS_KEY="wedding_invitation_settings_v1";
+function loadSettings(){
+ try{return {...defaults,...JSON.parse(localStorage.getItem(SETTINGS_KEY)||"{}")};}
+ catch(error){return {...defaults};}
+}
+function persistSettings(){
+ try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(cfg));return true;}
+ catch(error){$("saveStatus").textContent="Не удалось сохранить настройки в браузере. Проверьте режим инкогнито или разрешения сайта.";return false;}
+}
+let cfg=loadSettings();
+function fillEditor(){
+ $("editBride").value=cfg.bride;$("editGroom").value=cfg.groom;$("editDate").value=cfg.date;
+ $("editCity").value=cfg.city;$("editVenue").value=cfg.venue;$("editAddress").value=cfg.address;
+ $("editMap").value=cfg.map;$("editPhone").value=cfg.phone;$("editIntro").value=cfg.intro;
+ $("musicVolume").value=String(cfg.musicVolume??0.35);
+}
+
+// Фото и музыка сохраняются отдельно в IndexedDB, чтобы не упираться
+// в маленький лимит localStorage для больших файлов.
+const ASSET_DB="wedding_invitation_assets_v1";
+function openAssetDB(){return new Promise((resolve,reject)=>{
+ if(!window.indexedDB){reject(new Error("IndexedDB недоступен"));return;}
+ const request=indexedDB.open(ASSET_DB,1);
+ request.onupgradeneeded=()=>{if(!request.result.objectStoreNames.contains("assets"))request.result.createObjectStore("assets");};
+ request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error||new Error("Ошибка базы файлов"));
+});}
+async function saveAsset(key,blob){const db=await openAssetDB();return new Promise((resolve,reject)=>{
+ const tx=db.transaction("assets","readwrite");tx.objectStore("assets").put(blob,key);
+ tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>{db.close();reject(tx.error);};
+});}
+async function readAsset(key){const db=await openAssetDB();return new Promise((resolve,reject)=>{
+ const tx=db.transaction("assets","readonly"),req=tx.objectStore("assets").get(key);
+ req.onsuccess=()=>{const result=req.result||null;db.close();resolve(result);};req.onerror=()=>{db.close();reject(req.error);};
+});}
+async function removeAsset(key){try{const db=await openAssetDB();await new Promise((resolve,reject)=>{
+ const tx=db.transaction("assets","readwrite");tx.objectStore("assets").delete(key);
+ tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);
+ });db.close();}catch(error){}}
+
+function dateParts(){const d=new Date(cfg.date+"T12:00:00");return {d,day:String(d.getDate()).padStart(2,"0"),month:String(d.getMonth()+1).padStart(2,"0"),year:d.getFullYear()}}
+function apply(){
+ const p=dateParts(), formatted=`${p.day} · ${p.month} · ${p.year}`, pretty=p.d.toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"});
+ ["coverBride","heroBride","footerBride"].forEach(id=>$(id).textContent=cfg.bride);
+ ["coverGroom","heroGroom","footerGroom"].forEach(id=>$(id).textContent=cfg.groom);
+ ["coverDate","heroDate"].forEach(id=>$(id).textContent=formatted);
+ $("coverInitials").textContent=cfg.bride.slice(0,1).toUpperCase()+" ♡ "+cfg.groom.slice(0,1).toUpperCase();
+ $("coverCity").textContent=cfg.city.toUpperCase();$("introText").textContent=cfg.intro;
+ $("venueName").textContent=cfg.venue;$("venueAddress").textContent=cfg.address;$("mapLink").href=cfg.map;
+ $("footerDate").textContent=pretty.toUpperCase()+" · С ЛЮБОВЬЮ";$("rsvpDeadline").textContent=new Date(p.d.getTime()-13*86400000).toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"});
+ $("calendarMonth").textContent=p.d.toLocaleDateString("ru-RU",{month:"long",year:"numeric"});
+ drawCalendar(p.d);updateCountdown();
+}
+function drawCalendar(d){const el=$("calendarDays");el.innerHTML="";["ПН","ВТ","СР","ЧТ","ПТ","СБ","ВС"].forEach(x=>{let s=document.createElement("span");s.className="weekday";s.textContent=x;el.append(s)});
+ const first=(new Date(d.getFullYear(),d.getMonth(),1).getDay()+6)%7, total=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();
+ for(let i=0;i<first;i++)el.append(document.createElement("span"));for(let n=1;n<=total;n++){let s=document.createElement("span");s.textContent=n;if(n===d.getDate())s.className="chosen";el.append(s)}}
+function updateCountdown(){const target=new Date(cfg.date+"T16:00:00").getTime(),now=Date.now(),diff=Math.max(0,target-now);let values=[Math.floor(diff/86400000),Math.floor(diff%86400000/3600000),Math.floor(diff%3600000/60000),Math.floor(diff%60000/1000)];$("countdown").innerHTML=values.map((v,i)=>`<div><strong>${String(v).padStart(2,"0")}</strong><small>${["дней","часов","минут","секунд"][i]}</small></div>`).join("")}
+$("openInvite").addEventListener("click",()=>{$("main").classList.add("visible");$("cover").style.display="none";$("scrollRoute").classList.add("active");window.scrollTo(0,0);requestAnimationFrame(prepareRoute)});
+$("editToggle").addEventListener("click",()=>$("editBox").classList.toggle("open"));
+$("saveSettings").addEventListener("click",()=>{
+ cfg={bride:$("editBride").value.trim()||defaults.bride,groom:$("editGroom").value.trim()||defaults.groom,date:$("editDate").value||defaults.date,city:$("editCity").value.trim(),venue:$("editVenue").value.trim(),address:$("editAddress").value.trim(),map:$("editMap").value.trim()||defaults.map,phone:$("editPhone").value.replace(/\D/g,""),intro:$("editIntro").value.trim(),musicVolume:Number($("musicVolume").value)};
+ const saved=persistSettings();apply();
+ $("saveStatus").textContent=saved?"✓ Изменения сохранены в этом браузере. При следующем открытии этой страницы они останутся.":"Не удалось сохранить настройки.";
+ $("editBox").classList.remove("open");
+});
+$("resetSettings").addEventListener("click",async()=>{
+ cfg={...defaults};localStorage.removeItem(SETTINGS_KEY);fillEditor();apply();
+ await removeAsset("photo");await removeAsset("audio");
+ if(musicObjectUrl)URL.revokeObjectURL(musicObjectUrl);musicObjectUrl=null;
+ weddingAudio.pause();weddingAudio.removeAttribute("src");weddingAudio.load();music=false;updateMusicButton();
+ $("couplePhoto").removeAttribute("src");$("photoFrame").classList.remove("has-image");
+ $("musicStatus").textContent="Музыка ещё не добавлена. Выберите аудиофайл.";
+ $("saveStatus").textContent="Шаблон сброшен к исходным настройкам.";
+});
+$("rsvpForm").addEventListener("submit",e=>{e.preventDefault();const msg=`Ответ на приглашение ${cfg.bride} и ${cfg.groom}%0AИмя: ${encodeURIComponent($("guestName").value)}%0AОтвет: ${encodeURIComponent($("attendance").value)}%0AГостей: ${$("guestCount").value}%0AПожелание: ${encodeURIComponent($("guestNote").value)}`;window.open(`https://wa.me/${cfg.phone}?text=${msg}`,"_blank","noopener")});
+$("photoInput").addEventListener("change",async e=>{
+ const file=e.target.files&&e.target.files[0];if(!file)return;
+ const url=URL.createObjectURL(file);$("couplePhoto").src=url;$("photoFrame").classList.add("has-image");
+ try{await saveAsset("photo",file);$("saveStatus").textContent="✓ Фотография сохранена в этом браузере.";}
+ catch(error){$("saveStatus").textContent="Фото показано, но браузер не разрешил сохранить файл. Откройте сайт через Chrome/Edge без режима инкогнито.";}
+});
+const weddingAudio=$("weddingAudio");
+let music=false, musicObjectUrl=null;
+function updateMusicButton(){
+ $("musicToggle").textContent=music?"♫ МУЗЫКА: ВКЛ.":"♫ МУЗЫКА: ВЫКЛ.";
+ $("musicToggle").setAttribute("aria-label",music?"Выключить музыку":"Включить музыку");
+}
+$("musicFile").addEventListener("change",async e=>{
+ const file=e.target.files&&e.target.files[0];
+ if(!file)return;
+ if(!file.type.startsWith("audio/")){ $("musicStatus").textContent="Пожалуйста, выберите аудиофайл."; return; }
+ if(musicObjectUrl)URL.revokeObjectURL(musicObjectUrl);
+ musicObjectUrl=URL.createObjectURL(file);
+ weddingAudio.src=musicObjectUrl;
+ weddingAudio.volume=Number($("musicVolume").value);
+ music=false;updateMusicButton();
+ try{await saveAsset("audio",file);$("musicStatus").textContent="Выбрано и сохранено: "+file.name+". Нажмите кнопку ♫ сверху, чтобы включить.";}
+ catch(error){$("musicStatus").textContent="Файл выбран, но не удалось сохранить его между открытиями. Попробуйте Chrome/Edge без режима инкогнито.";}
+});
+$("musicVolume").addEventListener("input",e=>{weddingAudio.volume=Number(e.target.value);cfg.musicVolume=Number(e.target.value);persistSettings()});
+$("musicToggle").addEventListener("click",async()=>{
+ if(!weddingAudio.src){
+  $("musicStatus").textContent="Сначала откройте «НАСТРОИТЬ» и загрузите аудиофайл.";
+  $("editBox").classList.add("open");
+  $("musicFile").focus();
+  return;
+ }
+ if(music){weddingAudio.pause();music=false;updateMusicButton();return;}
+ try{await weddingAudio.play();music=true;updateMusicButton();}
+ catch(err){music=false;updateMusicButton();$("musicStatus").textContent="Не удалось запустить файл. Попробуйте выбрать его ещё раз.";}
+});
+weddingAudio.addEventListener("ended",()=>{music=false;updateMusicButton()});
+
+// Move the little heart along the winding route as the invitation is scrolled.
+const route=document.getElementById('scrollRoute');
+const routeBase=document.getElementById('routeBase');
+const routeProgress=document.getElementById('routeProgress');
+const routeMarker=document.getElementById('routeMarker');
+let routeLength=0,routeFrame=0;
+function prepareRoute(){
+ if(!routeBase||!routeProgress||!routeMarker)return;
+ routeLength=routeBase.getTotalLength();
+ routeProgress.style.strokeDasharray=routeLength;
+ routeProgress.style.strokeDashoffset=routeLength;
+ updateRoute();
+}
+function updateRoute(){
+ if(!route.classList.contains('active')||!routeLength)return;
+ const maxScroll=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+ const progress=Math.min(1,Math.max(0,window.scrollY/maxScroll));
+ const point=routeBase.getPointAtLength(routeLength*progress);
+ routeProgress.style.strokeDashoffset=routeLength*(1-progress);
+ routeMarker.setAttribute('transform',`translate(${point.x} ${point.y})`);
+}
+function requestRouteUpdate(){if(!routeFrame)routeFrame=requestAnimationFrame(()=>{routeFrame=0;updateRoute()})}
+window.addEventListener('scroll',requestRouteUpdate,{passive:true});
+window.addEventListener('resize',prepareRoute);
+
+fillEditor();
+apply();
+prepareRoute();
+(async function restoreSavedAssets(){
+ try{
+  const photo=await readAsset("photo");
+  if(photo){const url=URL.createObjectURL(photo);$("couplePhoto").src=url;$("photoFrame").classList.add("has-image");}
+  const audio=await readAsset("audio");
+  if(audio){musicObjectUrl=URL.createObjectURL(audio);weddingAudio.src=musicObjectUrl;weddingAudio.volume=Number(cfg.musicVolume??0.35);$("musicStatus").textContent="Сохранённая музыка готова. Нажмите ♫, чтобы включить.";}
+ }catch(error){$("saveStatus").textContent="Браузер ограничил сохранение файлов. Текстовые настройки сохраняются отдельно; для фото и музыки откройте сайт через локальный сервер или опубликованный адрес.";}
+})();
+</script>
+</body>
+</html>
